@@ -15,3 +15,4 @@ This Quiz App is the third project I built while following the third chapter of 
 - Applying transparency to an image.
 - Rendering Content Conditionally.
 - The "initState" Method.
+- Creating a Reusable, Custom Styled Button.
