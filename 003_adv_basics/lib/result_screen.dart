@@ -7,15 +7,16 @@ class ResultScreen extends StatelessWidget {
   const ResultScreen({required this.userAnswers, super.key});
   final List<String> userAnswers;
 
-  int countCorrectAnswers() {
-    int correctAnswerNO = 0;
-    for (var i = 0; i < questions.length; i++) {
-      if (userAnswers[i] == questions[i].answers[0]) {
-        correctAnswerNO++;
-      }
-    }
-    return correctAnswerNO;
-  }
+  // Old for loop for getting number of user correct answer written by me
+  // int countCorrectAnswers() {
+  //   int correctAnswerNO = 0;
+  //   for (var i = 0; i < questions.length; i++) {
+  //     if (userAnswers[i] == questions[i].answers[0]) {
+  //       correctAnswerNO++;
+  //     }
+  //   }
+  //   return correctAnswerNO;
+  // }
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -34,6 +35,12 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final totalQuestionsNumber = questions.length;
+    final userCorrectAnswersNumber = summaryData.where((data) {
+      return data["correct_answer"] == data["user_answer"];
+    }).length;
+
     return Container(
       margin: const EdgeInsets.all(20),
       child: Column(
@@ -41,7 +48,7 @@ class ResultScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'You answered ${countCorrectAnswers()} out of ${userAnswers.length} questions correctly',
+            'You answered $userCorrectAnswersNumber out of $totalQuestionsNumber questions correctly',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.white,
