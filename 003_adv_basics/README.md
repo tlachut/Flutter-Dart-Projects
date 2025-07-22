@@ -14,3 +14,4 @@ This Quiz App is the third project I built while following the third chapter of 
 - Adding icon to the `OutlinedButton`.
 - Applying transparency to an image.
 - Rendering Content Conditionally.
+- The "initState" Method.
