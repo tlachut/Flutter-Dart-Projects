@@ -8,7 +8,7 @@ void main() {
         appBar: AppBar(
           title: const Text('Flutter Quiz App'),
         ),
-        body: StartingUIScreen(),
+        body: const StartingUIScreen(),
       ),
     ),
   );

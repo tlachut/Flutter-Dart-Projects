@@ -7,7 +7,7 @@ class StartingUIScreen extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
             Colors.deepPurple,
@@ -17,7 +17,7 @@ class StartingUIScreen extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Center(
+      child: const Center(
         child: StartingUI(),
       ),
     );

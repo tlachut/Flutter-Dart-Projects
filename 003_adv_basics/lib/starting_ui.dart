@@ -16,8 +16,8 @@ class StartingUI extends StatelessWidget {
           'assets/images/quiz-logo.png',
           width: 300,
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 70),
+        const Padding(
+          padding: EdgeInsets.only(top: 70),
           child: Text(
             'Learn Flutter the fun way!',
             style: TextStyle(
@@ -30,7 +30,7 @@ class StartingUI extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20),
           child: OutlinedButton(
             onPressed: onPressed,
-            child: Text(
+            child: const Text(
               'Start Quiz',
               style: TextStyle(color: Colors.white),
             ),
