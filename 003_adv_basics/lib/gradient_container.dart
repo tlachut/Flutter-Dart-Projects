@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adv_basics/starting_ui.dart';
 
-class StartingUIScreen extends StatelessWidget {
-  const StartingUIScreen({super.key});
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
 
   @override
   Widget build(context) {
