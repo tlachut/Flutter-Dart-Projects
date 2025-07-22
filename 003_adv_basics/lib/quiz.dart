@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adv_basics/starting_ui.dart';
 import 'package:adv_basics/question_screen.dart';
+import 'package:adv_basics/data/questions.dart';
+import 'package:adv_basics/result_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -30,6 +32,12 @@ class _QuizState extends State<Quiz> {
 
   void chooseAnswer(String answer) {
     userAnswers.add(answer);
+
+    if (userAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = ResultScreen(userAnswers: userAnswers);
+      });
+    }
   }
 
   @override
