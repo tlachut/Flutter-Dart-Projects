@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:adv_basics/gradient_container.dart';
+import 'package:adv_basics/starting_ui.dart';
+import 'package:adv_basics/question_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -11,6 +12,14 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  Widget activeScreen = const StartingUI();
+
+  void switchScreen() {
+    setState(() {
+      activeScreen = const QuestionScreen();
+    });
+  }
+
   @override
   Widget build(context) {
     return MaterialApp(
@@ -18,7 +27,21 @@ class _QuizState extends State<Quiz> {
         appBar: AppBar(
           title: const Text('Flutter Quiz App'),
         ),
-        body: const GradientContainer(),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepPurple,
+                Colors.purple,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Center(
+            child: activeScreen,
+          ),
+        ),
       ),
     );
   }
