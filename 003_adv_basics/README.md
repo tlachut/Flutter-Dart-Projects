@@ -12,3 +12,4 @@ This Quiz App is the third project I built while following the third chapter of 
 - Repetition of material from previous lessons.
 - `AppBar` implementation.
 - Adding icon to the `OutlinedButton`.
+- Applying transparency to an image.
