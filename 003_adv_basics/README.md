@@ -1,4 +1,3 @@
-
 # Quiz App
 
 This Quiz App is the third project I built while following the third chapter of the [Flutter &amp; Dart - The Complete Guide [2025 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/) Udemy course.
@@ -16,3 +15,5 @@ This Quiz App is the third project I built while following the third chapter of 
 - Rendering Content Conditionally.
 - The "initState" Method.
 - Creating a Reusable, Custom Styled Button.
+- Mapping Lists & Using the Spread Operator
+- Mutating Values in Memory

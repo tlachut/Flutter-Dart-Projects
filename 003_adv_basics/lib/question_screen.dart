@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adv_basics/answer_button.dart';
+import 'package:adv_basics/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -11,32 +12,41 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  int currentQuestionNO = 0;
+
+  void nextQuestion() {
+    setState(() {
+      currentQuestionNO++;
+    });
+  }
+
   @override
   Widget build(context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          "Question",
-          style: TextStyle(color: Colors.white),
-        ),
-        AnswerButton(
-          answerText: "Answer 1",
-          onTap: () {},
-        ),
-        AnswerButton(
-          answerText: "Answer 2",
-          onTap: () {},
-        ),
-        AnswerButton(
-          answerText: "Answer 3",
-          onTap: () {},
-        ),
-        AnswerButton(
-          answerText: "Answer 4",
-          onTap: () {},
-        ),
-      ],
+    return Container(
+      margin: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            questions[currentQuestionNO].question,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ...questions[currentQuestionNO].getShuffledList().map((answer) {
+            return AnswerButton(
+              answerText: answer,
+              onTap: nextQuestion,
+            );
+          }),
+        ],
+      ),
     );
   }
 }
