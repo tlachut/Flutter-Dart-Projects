@@ -8,12 +8,29 @@ class ResultScreen extends StatelessWidget {
 
   int countCorrectAnswers() {
     int correctAnswerNO = 0;
-    for (var i = 0; i < questions.length - 1; i++) {
+    for (var i = 0; i < questions.length; i++) {
       if (userAnswers[i] == questions[i].answers[0]) {
         correctAnswerNO++;
       }
     }
     return correctAnswerNO;
+  }
+
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < questions.length; i++) {
+      if (userAnswers[i] == questions[i].answers[0]) {
+        summary.add({
+          "question_index": i,
+          "question": questions[i].question,
+          "correct_answer": questions[i].answers[0],
+          "userAnswer": userAnswers[i],
+        });
+      }
+    }
+
+    return summary;
   }
 
   @override
