@@ -28,12 +28,13 @@ class StartingUI extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 20),
-          child: OutlinedButton(
-            onPressed: onPressed,
-            child: const Text(
-              'Start Quiz',
-              style: TextStyle(color: Colors.white),
+          child: OutlinedButton.icon(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.white,
             ),
+            onPressed: onPressed,
+            icon: const Icon(Icons.arrow_circle_right_outlined),
+            label: const Text('Start Quiz'),
           ),
         ),
       ],
