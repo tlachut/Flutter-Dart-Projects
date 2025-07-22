@@ -18,3 +18,4 @@ This Quiz App is the third project I built while following the third chapter of 
 - Mapping Lists & Using the Spread Operator.
 - Mutating Values in Memory.
 - Using Third-Party Packages & Adding Google Fonts.
+- Passing Data via Functions Across Widgets.
