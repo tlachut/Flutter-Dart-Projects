@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/data/questions.dart';
+import 'package:adv_basics/summary_view.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({required this.userAnswers, super.key});
@@ -20,14 +21,12 @@ class ResultScreen extends StatelessWidget {
     final List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < questions.length; i++) {
-      if (userAnswers[i] == questions[i].answers[0]) {
-        summary.add({
-          "question_index": i,
-          "question": questions[i].question,
-          "correct_answer": questions[i].answers[0],
-          "userAnswer": userAnswers[i],
-        });
-      }
+      summary.add({
+        "question_index": i,
+        "question": questions[i].question,
+        "correct_answer": questions[i].answers[0],
+        "user_answer": userAnswers[i],
+      });
     }
 
     return summary;
@@ -53,14 +52,7 @@ class ResultScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Text(
-            'List of answers and questions:',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-              color: const Color.fromARGB(220, 255, 255, 255),
-              fontSize: 22,
-            ),
-          ),
+          SummaryView(summaryData: getSummaryData()),
           const SizedBox(
             height: 20,
           ),
