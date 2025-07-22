@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartingUI extends StatelessWidget {
   const StartingUI(this.quizStart, {super.key});
@@ -15,11 +16,11 @@ class StartingUI extends StatelessWidget {
           color: const Color.fromARGB(150, 255, 255, 255),
           width: 300,
         ),
-        const Padding(
-          padding: EdgeInsets.only(top: 70),
+         Padding(
+          padding: const EdgeInsets.only(top: 70),
           child: Text(
             'Learn Flutter the fun way!',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               color: Colors.white,
               fontSize: 28,
             ),

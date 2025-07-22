@@ -29,7 +29,7 @@ class AnswerButton extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           answerText,
-          style: const TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 18),
           textAlign: TextAlign.center,
         ),
       ),

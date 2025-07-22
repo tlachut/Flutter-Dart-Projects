@@ -15,5 +15,6 @@ This Quiz App is the third project I built while following the third chapter of 
 - Rendering Content Conditionally.
 - The "initState" Method.
 - Creating a Reusable, Custom Styled Button.
-- Mapping Lists & Using the Spread Operator
-- Mutating Values in Memory
+- Mapping Lists & Using the Spread Operator.
+- Mutating Values in Memory.
+- Using Third-Party Packages & Adding Google Fonts.
