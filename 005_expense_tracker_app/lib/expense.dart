@@ -1,24 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
-class Expense extends StatefulWidget {
-  const Expense({super.key});
+const uuid = Uuid();
 
-  @override
-  State<Expense> createState() {
-    return _ExpenseState();
-  }
-}
+enum Category { food, travel, leisure, work }
 
-class _ExpenseState extends State<Expense> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [
-          Text('The chart'),
-          Text('Expenses list...'),
-        ],
-      ),
-    );
-  }
+class Expense {
+  Expense({
+    required this.title,
+    required this.amount,
+    required this.date,
+    required this.category,
+  }) : id = uuid.v4();
+
+  final String id;
+  final String title;
+  final double amount;
+  final DateTime date;
+  final Category category;
 }
