@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
+import 'models/expense.dart';
 
-class Expense extends StatefulWidget {
-  const Expense({super.key});
+class Expenses extends StatefulWidget {
+  const Expenses({super.key});
 
   @override
-  State<Expense> createState() {
-    return _ExpenseState();
+  State<Expenses> createState() {
+    return _ExpensesState();
   }
 }
 
-class _ExpenseState extends State<Expense> {
+class _ExpensesState extends State<Expenses> {
+  final List<Expense> _expensesList = [
+    Expense(
+      title: 'Flutter course ',
+      amount: 19.99,
+      date: DateTime.now(),
+      category: Category.work,
+    ),
+    Expense(
+      title: 'Cinema ticket',
+      amount: 9.99,
+      date: DateTime.now(),
+      category: Category.leisure,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
