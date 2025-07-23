@@ -3,7 +3,9 @@
 This Quiz App is the third project I built while following the third chapter of the [Flutter &amp; Dart - The Complete Guide [2025 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/) Udemy course.
 
 <p align="center">
-  <img src="image/README/1753169870384.png" alt="Dice Roller App Screenshot" width="200"/>
+  <img src="image/README/1753279286675.png" alt="Welcome Screen View" width="200"/>
+  <img src="image/README/1753279123467.png" alt="Quiz Screen View" width="200"/>
+  <img src="image/README/1753279198821.png" alt="Results Screen View" width="200"/>
 </p>
 
 ### What I learned during this chapter:
@@ -23,3 +25,6 @@ This Quiz App is the third project I built while following the third chapter of 
 -   Using "Type Casting".
 -   Combining Columns & Rows.
 -   Using `Expanded` widget to inherit widget size from parent widget (for Columns and Rows).
+-   Making Content Scrollable with SingleChildScrollView.
+-   Using getters in Dart.
+-   Using arrows functions.

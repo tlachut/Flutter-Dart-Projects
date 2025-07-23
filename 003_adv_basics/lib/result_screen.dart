@@ -4,7 +4,13 @@ import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/summary_view.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({required this.userAnswers, super.key});
+  const ResultScreen({
+    required this.userAnswers,
+    required this.restartQuiz,
+    super.key,
+  });
+
+  final Function() restartQuiz;
   final List<String> userAnswers;
 
   // Old for loop for getting number of user correct answer written by me
@@ -57,7 +63,7 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           SummaryView(summaryData: getSummaryData()),
           const SizedBox(
@@ -67,8 +73,9 @@ class ResultScreen extends StatelessWidget {
             child: OutlinedButton.icon(
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
+                backgroundColor: const Color.fromARGB(30, 255, 255, 255),
               ),
-              onPressed: () {},
+              onPressed: restartQuiz,
               icon: const Icon(Icons.refresh),
               label: const Text('Restart Quiz!'),
             ),

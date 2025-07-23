@@ -26,6 +26,7 @@ class _QuizState extends State<Quiz> {
 
   void switchScreen() {
     setState(() {
+      userAnswers.clear();
       activeScreen = QuestionScreen(onChooseAnswer: chooseAnswer);
     });
   }
@@ -35,7 +36,10 @@ class _QuizState extends State<Quiz> {
 
     if (userAnswers.length == questions.length) {
       setState(() {
-        activeScreen = ResultScreen(userAnswers: userAnswers);
+        activeScreen = ResultScreen(
+          userAnswers: userAnswers,
+          restartQuiz: switchScreen,
+        );
       });
     }
   }
