@@ -12,13 +12,14 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 
 ### What I learned during this chapter:
 
-- Using the `uuid` package to generate new individual identifiers.
-- Using `enum` for defining a set of named constants.
-- Rendering Long Lists with `ListView` and `build` method for scrolling.
-- Creating a Custom List Item with the Card & Spacer Widgets.
-- Formatting Dates using `intl` package.
-- Setting an `AppBar` with a Title & Actions.
-- Adding a Modal Sheet & Understanding Context.
-- Handling User (Text) Input with the TextField Widget.
-- Using `TextEditingController` to controlling and storing data from the inputs.
-- Closing The Modal with `Navigator.pop` method.
+-   Using the `uuid` package to generate new individual identifiers.
+-   Using `enum` for defining a set of named constants.
+-   Rendering Long Lists with `ListView` and `build` method for scrolling.
+-   Creating a Custom List Item with the Card & Spacer Widgets.
+-   Formatting Dates using `intl` package.
+-   Setting an `AppBar` with a Title & Actions.
+-   Adding a Modal Sheet & Understanding Context.
+-   Handling User (Text) Input with the TextField Widget.
+-   Using `TextEditingController` to controlling and storing data from the inputs.
+-   Closing The Modal with `Navigator.pop` method.
+-   Showing a Date Picker.

@@ -16,8 +16,19 @@ class _NewExpenseState extends State<NewExpense> {
   //   _enteredTitle = inputTitle;
   // }
 
-  var _titleController = TextEditingController();
-  var _amountController = TextEditingController();
+  final _titleController = TextEditingController();
+  final _amountController = TextEditingController();
+
+  void _openDatePicker() {
+    final nowDate = DateTime.now();
+    final firstDate = DateTime(nowDate.year - 1, nowDate.month, nowDate.day);
+    showDatePicker(
+      context: context,
+      initialDate: nowDate,
+      firstDate: firstDate,
+      lastDate: nowDate,
+    );
+  }
 
   @override
   void dispose() {
@@ -39,16 +50,38 @@ class _NewExpenseState extends State<NewExpense> {
               label: Text('Title'),
             ),
           ),
-          TextField(
-            controller: _amountController,
-            keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [
-              _CommaToDecimalFormatter(),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _amountController,
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                  ),
+                  inputFormatters: [
+                    _CommaToDecimalFormatter(),
+                  ],
+                  decoration: const InputDecoration(
+                    label: Text('Amount'),
+                    prefixText: '\$ ',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text('Select date'),
+                    IconButton(
+                      onPressed: _openDatePicker,
+                      icon: const Icon(Icons.calendar_month),
+                    ),
+                  ],
+                ),
+              ),
             ],
-            decoration: const InputDecoration(
-              label: Text('Amount'),
-              prefixText: '\$ ',
-            ),
           ),
           Row(
             children: [
