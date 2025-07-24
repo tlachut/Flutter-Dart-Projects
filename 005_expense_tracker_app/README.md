@@ -21,3 +21,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Adding a Modal Sheet & Understanding Context.
 - Handling User (Text) Input with the TextField Widget.
 - Using `TextEditingController` to controlling and storing data from the inputs.
+- Closing The Modal with `Navigator.pop` method.
