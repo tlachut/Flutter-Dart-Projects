@@ -12,5 +12,8 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 
 ### What I learned during this chapter:
 
--   Using the `uuid` package to generate new individual identifiers.
--   Using `enum` for defining a set of named constants.
+- Using the `uuid` package to generate new individual identifiers.
+- Using `enum` for defining a set of named constants.
+- Rendering Long Lists with `ListView` and `build` method for scrolling.
+- Creating a Custom List Item with the Card & Spacer Widgets.
+-
