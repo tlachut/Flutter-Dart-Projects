@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:expense_tracker/models/expense.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key});
@@ -36,6 +37,33 @@ class _NewExpenseState extends State<NewExpense> {
     });
   }
 
+  void _submitNewExpense() {
+    final invalidTitle = _titleController.text.isEmpty;
+    final enteredAmount = double.tryParse(_amountController.text);
+    final invalidAmount = enteredAmount == null || enteredAmount < 0;
+    final invalidDate = _selectedDate == null;
+
+    if (invalidTitle || invalidAmount || invalidDate) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Invalid data'),
+          content: const Text(
+            'Please ensure that you have entered the correct title and amount and selected the date and category.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -49,6 +77,14 @@ class _NewExpenseState extends State<NewExpense> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
+          Text(
+            'Add a new expense',
+            style: GoogleFonts.lato(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
           TextField(
             controller: _titleController,
             maxLength: 50,
@@ -120,10 +156,7 @@ class _NewExpenseState extends State<NewExpense> {
               ),
               const Spacer(),
               ElevatedButton(
-                onPressed: () {
-                  print(_titleController.text);
-                  print(_amountController.text);
-                },
+                onPressed: _submitNewExpense,
                 child: const Text('Save'),
               ),
               TextButton(
