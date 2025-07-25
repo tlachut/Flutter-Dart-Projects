@@ -25,3 +25,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 -   Showing a Date Picker.
 -   Working with "Futures" for Handling Data from the Future.
 -   Adding a Dropdown Button.
+-   Validating User Input & Showing an Error Dialog.

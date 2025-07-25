@@ -4,7 +4,9 @@ import 'package:expense_tracker/models/expense.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewExpense extends StatefulWidget {
-  const NewExpense({super.key});
+  const NewExpense(this.onAddExpense, {super.key});
+
+  final void Function(Expense expense) onAddExpense;
 
   @override
   State<NewExpense> createState() {
@@ -21,7 +23,7 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
-  String _selectedCategory = Category.food.name;
+  Category _selectedCategory = Category.food;
 
   void _openDatePicker() async {
     final nowDate = DateTime.now();
@@ -61,7 +63,17 @@ class _NewExpenseState extends State<NewExpense> {
           ],
         ),
       );
+      return;
     }
+
+    widget.onAddExpense(
+      Expense(
+        title: _titleController.text,
+        amount: enteredAmount,
+        date: _selectedDate!,
+        category: _selectedCategory,
+      ),
+    );
   }
 
   @override
@@ -132,12 +144,12 @@ class _NewExpenseState extends State<NewExpense> {
           const SizedBox(height: 12),
           Row(
             children: [
-              DropdownButton<String>(
+              DropdownButton<Category>(
                 value: _selectedCategory,
                 items: Category.values
                     .map(
                       (category) => DropdownMenuItem(
-                        value: category.name,
+                        value: category,
                         child: Text(
                           category.name[0].toUpperCase() +
                               category.name.substring(1),
