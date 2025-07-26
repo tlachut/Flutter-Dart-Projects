@@ -28,3 +28,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Validating User Input & Showing an Error Dialog.
 - Using the Dismissible Widget.
 - Showing & Managing "Snackbars"**.**
+- Theming, Setting & Using a Color Scheme, Setting Text Themes, Using Theme Data in Widgets.

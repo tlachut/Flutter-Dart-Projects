@@ -33,6 +33,11 @@ void main() {
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
+          titleMedium: GoogleFonts.lato(
+            fontSize: 18,
+            color: kColorScheme.onSecondaryContainer,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       home: const Expenses(),
