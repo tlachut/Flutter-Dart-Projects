@@ -74,6 +74,8 @@ class _NewExpenseState extends State<NewExpense> {
         category: _selectedCategory,
       ),
     );
+
+    Navigator.pop(context);
   }
 
   @override
@@ -181,15 +183,15 @@ class _NewExpenseState extends State<NewExpense> {
                   },
                 ),
                 const Spacer(),
-                ElevatedButton(
-                  onPressed: _submitNewExpense,
-                  child: const Text('Save'),
-                ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: const Text('Cancel'),
+                ),
+                ElevatedButton(
+                  onPressed: _submitNewExpense,
+                  child: const Text('Save'),
                 ),
               ],
             ),

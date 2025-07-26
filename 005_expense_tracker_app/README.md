@@ -26,3 +26,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 -   Working with "Futures" for Handling Data from the Future.
 -   Adding a Dropdown Button.
 -   Validating User Input & Showing an Error Dialog.
+-   Using the Dismissible Widget.
