@@ -52,9 +52,9 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 
 ### Additional Features
 
-|                               Validation Error                                |                               Landscape Mode                                |
-| :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-| <img src="image/README/1753738828990.png" alt="Validation Error" width="300"> | <img src="image/README/1753738970766.png" alt="Landscape Mode" width="300"> |
+|                               Validation Error                                |                                Landscape Mode                                |
+| :---------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
+| <img src="image/README/1753738828990.png" alt="Validation Error" width="300"> | <img src="image/README/1753738970766.png" alt="Landscape Mode" height="300"> |
 
 ---
 
