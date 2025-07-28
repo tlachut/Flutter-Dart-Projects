@@ -33,7 +33,12 @@ class _ExpensesState extends State<Expenses> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder: (ctx) => NewExpense(_addExpense),
+      builder: (ctx) => Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).viewPadding.top,
+        ),
+        child: NewExpense(_addExpense),
+      ),
     );
   }
 

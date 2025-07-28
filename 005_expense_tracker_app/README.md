@@ -35,3 +35,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Adding Chart Widgets.
 - Locking the Device Orientiation.
 - Updating the UI based on the Available Space.
+- Handling to Screen Overlays like the Soft Keyboard.
