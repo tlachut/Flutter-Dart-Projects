@@ -6,9 +6,59 @@ var kColorScheme = ColorScheme.fromSeed(
   seedColor: Colors.deepPurpleAccent,
 );
 
+var kDarkColorScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
+  seedColor: const Color.fromARGB(255, 5, 99, 125),
+);
+
 void main() {
   runApp(
     MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColorScheme,
+        appBarTheme: AppBarTheme(
+          backgroundColor: kDarkColorScheme.primary,
+          foregroundColor: Colors.black,
+        ),
+        cardTheme: const CardThemeData().copyWith(
+          color: kDarkColorScheme.secondaryContainer,
+          margin: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kDarkColorScheme.primaryContainer,
+            foregroundColor: kDarkColorScheme.onPrimaryContainer,
+          ),
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: GoogleFonts.lato(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          titleMedium: GoogleFonts.lato(
+            fontSize: 18,
+            color: kDarkColorScheme.onSecondaryContainer,
+            fontWeight: FontWeight.bold,
+          ),
+          titleSmall: GoogleFonts.lato(
+            fontSize: 14,
+            color: kDarkColorScheme.onSecondaryContainer,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyMedium: GoogleFonts.lato(
+            fontSize: 14,
+            color: kDarkColorScheme.onSecondaryContainer,
+          ),
+          bodySmall: GoogleFonts.lato(
+            fontSize: 14,
+            color: kDarkColorScheme.onSecondaryContainer,
+          ),
+        ),
+      ),
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme(
