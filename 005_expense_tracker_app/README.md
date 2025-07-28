@@ -40,21 +40,21 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 
 ### Light Mode
 
-|                           Main Screen (With Expenses)                            |                                Main Screen (Empty)                                |                                   Add Expense                                    |
-| :------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
-| `<img src="image/README/1753738431610.png" alt="Main Screen Light" width="300">` | `<img src="image/README/1753738607625.png" alt="Empty Screen Light" width="300">` | `<img src="image/README/1753738703927.png" alt="Add Expense Light" width="300">` |
+|                          Main Screen (With Expenses)                           |                               Main Screen (Empty)                               |                                  Add Expense                                   |
+| :----------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| <img src="image/README/1753738431610.png" alt="Main Screen Light" width="300"> | <img src="image/README/1753738607625.png" alt="Empty Screen Light" width="300"> | <img src="image/README/1753738703927.png" alt="Add Expense Light" width="300"> |
 
 ### Dark Mode
 
-|                                   Main Screen                                   |                                   Add Expense                                    |
-| :-----------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
-| `<img src="image/README/1753738529110.png" alt="Main Screen Dark" width="300">` | `<img src="image/README/1753738793952.png" alt="Add Expense Dark" height="300">` |
+|                                  Main Screen                                  |                                  Add Expense                                  |
+| :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+| <img src="image/README/1753738529110.png" alt="Main Screen Dark" width="300"> | <img src="image/README/1753738793952.png" alt="Add Expense Dark" width="300"> |
 
 ### Additional Features
 
-|                                Validation Error                                 |                                Landscape Mode                                 |
-| :-----------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| `<img src="image/README/1753738828990.png" alt="Validation Error" width="300">` | `<img src="image/README/1753738970766.png" alt="Landscape Mode" width="300">` |
+|                               Validation Error                                |                               Landscape Mode                                |
+| :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
+| <img src="image/README/1753738828990.png" alt="Validation Error" width="300"> | <img src="image/README/1753738970766.png" alt="Landscape Mode" width="300"> |
 
 ---
 
