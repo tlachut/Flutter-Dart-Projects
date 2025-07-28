@@ -32,4 +32,5 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Adding Dark Mode.
 - Using `for-in` loop.
 - Adding Alternative Constructor Functions.
-- Adding Chart Widgets
+- Adding Chart Widgets.
+- Locking the Device Orientiation.
