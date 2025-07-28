@@ -1,6 +1,6 @@
 # Expense Tracker App
 
-This Expense Tracker App is the fifth project I built while following the fifth chapter of the [Flutter &amp; Dart - The Complete Guide [2025 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/) Udemy course.
+This Expense Tracker App is the fifth project I built while following the fifth and sixth chapter of the [Flutter &amp; Dart - The Complete Guide [2025 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/) Udemy course.
 
 <p align="center">
   <img src="" alt="" width="300"/>
@@ -34,3 +34,4 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Adding Alternative Constructor Functions.
 - Adding Chart Widgets.
 - Locking the Device Orientiation.
+- Updating the UI based on the Available Space.
