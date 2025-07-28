@@ -1,6 +1,7 @@
 import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
+import 'package:expense_tracker/widgets/edit_expense.dart';
 import 'package:flutter/material.dart';
 import '../models/expense.dart';
 
@@ -33,18 +34,35 @@ class _ExpensesState extends State<Expenses> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder: (ctx) => Padding(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).viewPadding.top,
-        ),
-        child: NewExpense(_addExpense),
-      ),
+      useSafeArea: true,
+      barrierColor: Colors.white.withOpacity(0),
+      builder: (ctx) => NewExpense(_addExpense),
     );
   }
 
   void _addExpense(Expense expense) {
     setState(() {
       _expensesList.add(expense);
+    });
+  }
+
+  void _openEditExpenseOverlay(Expense oldExpense) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      barrierColor: Colors.white.withOpacity(0),
+      builder: (ctx) => EditExpense(
+        oldExpense,
+        (newExpense) => _editExpense(oldExpense, newExpense),
+      ),
+    );
+  }
+
+  void _editExpense(Expense oldExpense, Expense newExpense) {
+    final expenseIndex = _expensesList.indexOf(oldExpense);
+    setState(() {
+      _expensesList[expenseIndex] = newExpense;
     });
   }
 
@@ -86,6 +104,7 @@ class _ExpensesState extends State<Expenses> {
       mainContent = ExpensesList(
         expenses: _expensesList,
         onRemoveExpense: _removeExpense,
+        onEditExpense: _openEditExpenseOverlay,
       );
     }
 

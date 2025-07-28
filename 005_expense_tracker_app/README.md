@@ -2,11 +2,7 @@
 
 This Expense Tracker App is the fifth project I built while following the fifth and sixth chapter of the [Flutter &amp; Dart - The Complete Guide [2025 Edition]](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/) Udemy course.
 
-<p align="center">
-  <img src="" alt="" width="300"/>
-  <img src="" alt="" width="300"/>
-  <img src="" alt="" width="300"/>
-</p>
+
 
 ---
 
@@ -36,3 +32,10 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Locking the Device Orientiation.
 - Updating the UI based on the Available Space.
 - Handling to Screen Overlays like the Soft Keyboard.
+- Understanding "Safe Areas"
+- Using the LayoutBuilder Widget.
+- Building Adaptive Widgets.
+- Learned during the implementation of my own new feature—editing existing expenses:
+  - Use the `GestureDetector` widget to add a click action for a specific widget.
+  - Use the `late` keyword to initialize a variable only when it is first used.
+  - Using Closure in callback.

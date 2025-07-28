@@ -6,11 +6,14 @@ class ExpensesList extends StatelessWidget {
   const ExpensesList({
     required this.expenses,
     required this.onRemoveExpense,
+    required this.onEditExpense,
     super.key,
   });
 
   final List<Expense> expenses;
   final void Function(Expense expense) onRemoveExpense;
+  final void Function(Expense expense) onEditExpense;
+  // final void Function() onEditExpense;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,14 @@ class ExpensesList extends StatelessWidget {
         onDismissed: (direction) {
           onRemoveExpense(expenses[index]);
         },
-        child: ExpenseItem(expense: expenses[index]),
+        child: GestureDetector(
+          onTap: () {
+            onEditExpense(expenses[index]);
+          },
+          child: ExpenseItem(
+            expense: expenses[index],
+          ),
+        ),
       ),
     );
   }

@@ -5,27 +5,23 @@ import 'dart:io';
 
 import 'package:expense_tracker/models/expense.dart';
 
-class NewExpense extends StatefulWidget {
-  const NewExpense(this.onAddExpense, {super.key});
+class EditExpense extends StatefulWidget {
+  const EditExpense(this.expense, this.onEditExpense, {super.key});
 
-  final void Function(Expense expense) onAddExpense;
+  final Expense expense;
+  final void Function(Expense expense) onEditExpense;
 
   @override
-  State<NewExpense> createState() {
-    return _NewExpenseState();
+  State<EditExpense> createState() {
+    return _EditExpenseState();
   }
 }
 
-class _NewExpenseState extends State<NewExpense> {
-  // var _enteredTitle = '';
-  // void _saveTitle(String inputTitle) {
-  //   _enteredTitle = inputTitle;
-  // }
-
-  final _titleController = TextEditingController();
-  final _amountController = TextEditingController();
-  DateTime? _selectedDate;
-  Category _selectedCategory = Category.food;
+class _EditExpenseState extends State<EditExpense> {
+  late final _titleController = TextEditingController(text: widget.expense.title);
+  late final _amountController = TextEditingController(text: widget.expense.amount.toString());
+  late DateTime? _selectedDate = widget.expense.date;
+  late Category _selectedCategory = widget.expense.category;
 
   void _openDatePicker() async {
     final nowDate = DateTime.now();
@@ -81,7 +77,7 @@ class _NewExpenseState extends State<NewExpense> {
     }
   }
 
-  void _submitNewExpense() {
+  void _submitEditExpense() {
     final invalidTitle = _titleController.text.isEmpty;
     final enteredAmount = double.tryParse(_amountController.text);
     final invalidAmount = enteredAmount == null || enteredAmount < 0;
@@ -92,7 +88,7 @@ class _NewExpenseState extends State<NewExpense> {
       return;
     }
 
-    widget.onAddExpense(
+    widget.onEditExpense(
       Expense(
         title: _titleController.text,
         amount: enteredAmount,
@@ -123,7 +119,7 @@ class _NewExpenseState extends State<NewExpense> {
           width: double.infinity,
           child: Scaffold(
             appBar: AppBar(
-              title: const Text('Add new expense'),
+              title: const Text('Edit expense'),
             ),
             body: SafeArea(
               child: SingleChildScrollView(
@@ -223,7 +219,7 @@ class _NewExpenseState extends State<NewExpense> {
                               child: const Text('Cancel'),
                             ),
                             ElevatedButton(
-                              onPressed: _submitNewExpense,
+                              onPressed: _submitEditExpense,
                               child: const Text('Save'),
                             ),
                           ],
@@ -301,7 +297,7 @@ class _NewExpenseState extends State<NewExpense> {
                               child: const Text('Cancel'),
                             ),
                             ElevatedButton(
-                              onPressed: _submitNewExpense,
+                              onPressed: _submitEditExpense,
                               child: const Text('Save'),
                             ),
                           ],
