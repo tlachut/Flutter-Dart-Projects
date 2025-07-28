@@ -29,3 +29,7 @@ This Expense Tracker App is the fifth project I built while following the fifth 
 - Using the Dismissible Widget.
 - Showing & Managing "Snackbars"**.**
 - Theming, Setting & Using a Color Scheme, Setting Text Themes, Using Theme Data in Widgets.
+- Adding Dark Mode.
+- Using `for-in` loop.
+- Adding Alternative Constructor Functions.
+- Adding Chart Widgets
