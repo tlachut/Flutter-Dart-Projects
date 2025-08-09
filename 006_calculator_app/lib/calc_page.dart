@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:calculator_app/buttons.dart';
 import 'package:calculator_app/calc_text_field.dart';
@@ -21,10 +22,68 @@ class _CalcPageState extends State<CalcPage> {
     _controller = TextEditingController(text: '0');
   }
 
+  _launchURL() async {
+    final Uri url = Uri.parse(
+      'https://github.com/tlachut/Flutter-Dart-Projects',
+    );
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   void handleButtonClick(String input) {
     var currentText = _controller.text;
     print(input);
     if (input == 'ⓘ') {
+      showDialog(
+        context: context,
+        builder: (BuildContext dialogContext) {
+          return AlertDialog(
+            backgroundColor: Colors.black87,
+            titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
+            contentTextStyle: const TextStyle(color: Colors.white70, fontSize: 16),
+            title: const Text('About the app'),
+            content: const Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Author: Tomasz Łachut'),
+                SizedBox(height: 8),
+                Text(
+                  'This is a simple calculator app created in Flutter',
+                ),
+              ],
+            ),
+            actions: [
+              TextButton.icon(
+                onPressed: _launchURL,
+                icon: Image.asset(
+                  'assets/icons/github.png',
+                  width: 20,
+                  color: Colors.orange,
+                ),
+                label: const Text(
+                  'Show on GitHub',
+                  style: TextStyle(color: Colors.orange),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.orange,
+                ),
+                child: const Text(
+                  'Close',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          );
+        },
+      );
       return;
     }
     setState(() {
