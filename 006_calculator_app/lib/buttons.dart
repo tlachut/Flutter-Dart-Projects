@@ -2,9 +2,10 @@ import 'package:calculator_app/data/buttons_data.dart';
 import 'package:flutter/material.dart';
 
 class Buttons extends StatelessWidget {
-  const Buttons(this.handleButtonClick, {super.key});
+  const Buttons(this.handleButtonClick, this.separatorChar, {super.key});
 
   final Function(String) handleButtonClick;
+  final String separatorChar;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +15,14 @@ class Buttons extends StatelessWidget {
           runSpacing: 10.0,
           spacing: 10.0,
           children: [
-            ...buttons.map(
-              (button) => OutlinedButton(
-                onPressed: () => handleButtonClick(button.text),
+            ...buttons.map((button) {
+              final bool isOriginalSeparatorButton = button.text == ',';
+              final String buttonText = isOriginalSeparatorButton
+                  ? separatorChar
+                  : button.text;
+
+              return OutlinedButton(
+                onPressed: () => handleButtonClick(buttonText),
                 style: OutlinedButton.styleFrom(
                   backgroundColor: button.type == 'number'
                       ? Colors.grey[800] // If it's a number...
@@ -32,13 +38,13 @@ class Buttons extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    button.text,
+                    buttonText,
                     style: const TextStyle(fontSize: 32),
                     softWrap: false,
                   ),
                 ),
-              ),
-            ),
+              );
+            }),
           ],
         ),
       ],
