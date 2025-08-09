@@ -148,7 +148,7 @@ class _CalcPageState extends State<CalcPage> {
 
   bool validateOperation() {
     if (RegExp(
-      r'[÷×+,.-]',
+      r'[\÷\×\+\,\.\-]',
     ).hasMatch(
       _controller.text.substring(_controller.text.length - 1),
     )) {
@@ -267,7 +267,20 @@ class _CalcPageState extends State<CalcPage> {
       // Handling of clicking the “=” button
       else if (input == '=') {
         if (validateOperation() == true) {
-          showResult(performCalculations());
+          try {
+            showResult(performCalculations());
+          } catch (e) {
+            Fluttertoast.showToast(
+              msg: 'Invalid expression: $e',
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 2,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 18,
+              webPosition: 'center',
+            );
+          }
         }
         return;
       } else if (input == '±') {
@@ -318,6 +331,7 @@ class _CalcPageState extends State<CalcPage> {
   @override
   void dispose() {
     _controller.dispose();
+    _historyController.dispose();
     super.dispose();
   }
 
