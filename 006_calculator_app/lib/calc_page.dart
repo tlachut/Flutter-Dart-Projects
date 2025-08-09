@@ -41,7 +41,10 @@ class _CalcPageState extends State<CalcPage> {
           return AlertDialog(
             backgroundColor: Colors.black87,
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
-            contentTextStyle: const TextStyle(color: Colors.white70, fontSize: 16),
+            contentTextStyle: const TextStyle(
+              color: Colors.white70,
+              fontSize: 16,
+            ),
             title: const Text('About the app'),
             content: const Column(
               mainAxisSize: MainAxisSize.min,
@@ -91,9 +94,29 @@ class _CalcPageState extends State<CalcPage> {
         _controller.text = '0';
         return;
       } else if (currentText == '0') {
-        _controller.text = input;
+        if (RegExp(r'[0-9-]').hasMatch(input)) {
+          _controller.text = input;
+        } else {
+          _controller.text = currentText + input;
+        }
       } else {
-        _controller.text = currentText + input;
+        if (RegExp(
+              r'[÷×+-,]',
+            ).hasMatch(
+              _controller.text.substring(_controller.text.length - 1),
+            ) &&
+            RegExp(
+              r'[÷×+-,]',
+            ).hasMatch(input)) {
+          _controller.text =
+              _controller.text.substring(
+                0,
+                _controller.text.length - 1,
+              ) +
+              input;
+        } else {
+          _controller.text = currentText + input;
+        }
       }
     });
   }
