@@ -210,7 +210,7 @@ class _CalcPageState extends State<CalcPage> {
   }
 
   void checkSeparator() {
-    final RegExp operatorRegex = RegExp(r'[\+\-\×\÷]');
+    final RegExp operatorRegex = RegExp(r'[\+\-\×\÷\%]');
     final List<String> numbers = _controller.text.split(operatorRegex);
 
     final String lastNumber = numbers.last;
@@ -220,7 +220,7 @@ class _CalcPageState extends State<CalcPage> {
     }
 
     if (RegExp(
-      r'[÷×+,.-]',
+      r'[\%\÷\×\+\,\.\-]',
     ).hasMatch(
       _controller.text.substring(_controller.text.length - 1),
     )) {
@@ -228,6 +228,26 @@ class _CalcPageState extends State<CalcPage> {
     }
 
     _controller.text += _separatorChar;
+  }
+
+  void plusMinus() {
+    final String text = _controller.text;
+    final RegExp lastNumberWithOp = RegExp(r'([+\-])?(\d+([\.\,]\d+)?)$');
+    final Match? match = lastNumberWithOp.firstMatch(text);
+    if (match == null) return;
+    final String? operatorSign = match.group(
+      1,
+    );
+    final String numberPart = match.group(2)!;
+    String replacement;
+    if (operatorSign == null) {
+      replacement = '-$numberPart';
+    } else if (operatorSign == '-') {
+      replacement = '+$numberPart';
+    } else {
+      replacement = '-$numberPart';
+    }
+    _controller.text = text.replaceRange(match.start, match.end, replacement);
   }
 
   void handleButtonClick(String input) {
@@ -250,6 +270,8 @@ class _CalcPageState extends State<CalcPage> {
           showResult(performCalculations());
         }
         return;
+      } else if (input == '±') {
+        plusMinus();
       }
       // Handling of clicking the “,” and "." button
       else if (input == ',' || input == '.') {
