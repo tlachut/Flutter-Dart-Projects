@@ -21,9 +21,9 @@ I wanted to challenge myself by creating a working, styled app from scratch — 
 
 ## 📸 Screenshots
 
-|                                                     Main View – preliminary layout                                                     |                                                  Main View – sample calculation                                                   |                                                        About Dialog                                                         |
-| :------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
-| <img src="/Users/tomasz/Library/Caches/Clop/images/CleanShot 2025-08-09 at 21.04.30@2x.png" alt="Main View – preliminary" width="300"> | <img src="/Users/tomasz/Library/Caches/Clop/images/CleanShot 2025-08-09 at 21.08.55@2x.png" alt="Main View – sample" width="300"> | <img src="/Users/tomasz/Library/Caches/Clop/images/CleanShot 2025-08-09 at 21.14.24@2x.png" alt="About Dialog" width="300"> |
+|                            Main View – preliminary layout                            |                         Main View – sample calculation                          |                               About Dialog                                |
+| :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| <img src="image/README/1754767069039.png" alt="Main View – preliminary" width="300"> | <img src="image/README/1754767119494.png" alt="Main View – sample" width="300"> | <img src="image/README/1754767149039.png" alt="About Dialog" width="300"> |
 
 ### Proving the correctness of the calculations submitted
 
