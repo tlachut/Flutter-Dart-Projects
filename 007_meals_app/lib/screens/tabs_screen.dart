@@ -42,10 +42,15 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
+  bool _isFavourite(Meal meal) {
+    return _favouriteMeals.contains(meal);
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activeWidget = CategoryScreen(
       onFavouriteMeal: _toggleFavouriteMealStatus,
+      isFavourite: _isFavourite,
     );
     String activeTitle = 'Categories';
 
@@ -53,6 +58,7 @@ class _TabsScreenState extends State<TabsScreen> {
       activeWidget = MealsScreen(
         meals: _favouriteMeals,
         onFavouriteMeal: _toggleFavouriteMealStatus,
+        isFavourite: _isFavourite,
       );
       activeTitle = 'Your Favourites';
     }

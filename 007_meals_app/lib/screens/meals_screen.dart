@@ -9,11 +9,13 @@ class MealsScreen extends StatelessWidget {
     this.title,
     required this.meals,
     required this.onFavouriteMeal,
+    required this.isFavourite,
   });
 
   final String? title;
   final List<Meal> meals;
   final void Function(Meal meal) onFavouriteMeal;
+  final bool Function(Meal meal) isFavourite;
 
   void _selectMeal(BuildContext ctx, Meal meal) {
     Navigator.push(
@@ -22,6 +24,7 @@ class MealsScreen extends StatelessWidget {
         builder: (context) => MealDetailsScreen(
           meal: meal,
           onFavouriteMeal: onFavouriteMeal,
+          isFavourite: isFavourite(meal),
         ),
       ),
     );
