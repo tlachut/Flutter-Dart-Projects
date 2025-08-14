@@ -6,6 +6,7 @@ class MealsScreen extends StatelessWidget {
 
   final String title;
   final List<Meal> meals;
+  
 
   @override
   Widget build(BuildContext context) {
