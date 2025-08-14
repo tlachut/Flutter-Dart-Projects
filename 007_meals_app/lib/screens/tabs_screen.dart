@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/category_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 
@@ -20,13 +21,39 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  final List<Meal> _favouriteMeals = [];
+
+  void _toggleFavouriteMealStatus(Meal meal) {
+    print(meal);
+    final isExisting = _favouriteMeals.contains(meal);
+    print(isExisting);
+    print(_favouriteMeals);
+
+    if (isExisting) {
+      setState(() {
+        _favouriteMeals.remove(meal);
+      });
+      print(_favouriteMeals);
+    } else {
+      setState(() {
+        _favouriteMeals.add(meal);
+      });
+      print(_favouriteMeals);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget activeWidget = const CategoryScreen();
+    Widget activeWidget = CategoryScreen(
+      onFavouriteMeal: _toggleFavouriteMealStatus,
+    );
     String activeTitle = 'Categories';
 
     if (activeScreenIndex == 1) {
-      activeWidget = const MealsScreen(meals: []);
+      activeWidget = MealsScreen(
+        meals: _favouriteMeals,
+        onFavouriteMeal: _toggleFavouriteMealStatus,
+      );
       activeTitle = 'Your Favourites';
     }
 
