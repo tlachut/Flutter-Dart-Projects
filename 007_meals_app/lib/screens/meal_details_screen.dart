@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/widgets/favourite_star_icon.dart';
 
 class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({
@@ -19,11 +20,10 @@ class MealDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
-          IconButton(
-            onPressed: () {
-              onFavouriteMeal(meal);
-            },
-            icon: Icon(isFavourite ? Icons.star : Icons.star_border),
+          FavouriteStarIcon(
+            isFavourite: isFavourite,
+            meal: meal,
+            onFavouriteMeal: onFavouriteMeal,
           ),
         ],
       ),
