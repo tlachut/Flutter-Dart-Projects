@@ -4,9 +4,10 @@ import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({required this.meal, super.key});
+  const MealItem({super.key, required this.meal, required this.onSelectMeal});
 
   final Meal meal;
+  final void Function() onSelectMeal;
 
   String returnCapitalizeWord(String word) {
     return word[0].toUpperCase() + word.substring(1);
@@ -22,7 +23,7 @@ class MealItem extends StatelessWidget {
       ),
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: () {},
+        onTap: onSelectMeal,
         child: Stack(
           children: [
             FadeInImage(
