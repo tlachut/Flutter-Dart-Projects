@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({required this.meals, required this.title, super.key});
 
   final String title;
   final List<Meal> meals;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +35,7 @@ class MealsScreen extends StatelessWidget {
       content = Center(
         child: ListView.builder(
           itemCount: meals.length,
-          itemBuilder: (context, index) => Text(
-            meals[index].title,
-            style: const TextStyle(color: Colors.white),
-          ),
+          itemBuilder: (context, index) => MealItem(meal: meals[index]),
         ),
       );
     }
